@@ -61,12 +61,15 @@ class AssignmentTestCase(unittest.TestCase):
                         assignment.app.config['PASSWORD'] + 'Blah')
         assert b'password is wrong' in rv.data
 
+    @given(u'user wants to save and all field are valid')
     def test_SaveLog(self):
         rv = self.login(assignment.app.config['USERNAME'],
                         assignment.app.config['PASSWORD'])
         rv = self.app.post('/add_entry', data=dict(
             user='Brett',
-            log='Test log'
+            log='Test log',
+            start_time='11:00',
+            end_time='11:00',
         ), follow_redirects=True)
         assert (b'successfully saved' in rv.data)
 
