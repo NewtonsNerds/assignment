@@ -6,9 +6,3 @@ create table entries (
   end_time text,
   log text
 );
-CREATE TABLE `users` (
-	`id`	INTEGER,
-	`username`	TEXT UNIQUE,
-	`password`	TEXT,
-	PRIMARY KEY(id)
-);
